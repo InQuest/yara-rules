@@ -1,0 +1,33 @@
+// See: https://twitter.com/i/moments/918126999738175489
+
+rule Microsoft_Office_DDE_Command_Execution
+{
+    strings:
+        /*
+            simplified example excerpt:
+            <w:fldChar w:fldCharType="begin"/></w:r><w:r>
+            <w:instrText xml:space="preserve"> </w:instrText></w:r><w:r><w:rPr>
+            <w:rFonts w:ascii="Helvetica" w:hAnsi="Helvetica" w:cs="Helvetica"/><w:color w:val="333333"/>
+            <w:sz w:val="21"/><w:szCs w:val="21"/>
+            <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/></w:rPr>
+            <w:instrText>DDEAUTO c:\\windows\\system32\\cmd.exe "/k calc.exe"</w:instrText></w:r>
+            <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+            <w:bookmarkEnd w:id="0"/><w:r>
+            <w:instrText xml:space="preserve"> </w:instrText></w:r><w:r>
+            <w:fldChar w:fldCharType="end"/></w:r>
+        */
+
+        // NOTE: we must remain case-insensitive but do not wish to fire on DDE within other words like "<w:webHidden/>" for example.
+        // NOTE: nocase does not apply to character ranges ([^A-Za-z0-9-]).
+        $dde_auto = /<\s*w:fldChar\s+w:fldCharType\s*=\s*['"]begin['"]\s*\/>.+[^A-Za-z0-9-]DDEAUTO[^A-Za-z0-9-].+<w:fldChar\s+w:fldCharType\s*=\s*['"]end['"]\s*\/>/ nocase wide ascii
+
+        // DDEAUTO is the only known vector at the moment, widening the detection here for other possible vectors.
+        // NOTE: we miss DDEa* vectors with this simplification:
+        $dde_other = /<\s*w:fldChar\s+w:fldCharType\s*=\s*['"]begin['"]\s*\/>.+[^A-Za-z0-9-]DDE[b-zB-Z]+[^A-Za-z0-9-].+<w:fldChar\s+w:fldCharType\s*=\s*['"]end['"]\s*\/>/ nocase wide ascii
+
+        // NOTE: these strings can be broken apart with XML constructs. additional post processing is required to avoid evasion.
+        $exec_action = /(cmd.exe|wscript|powershell|bitsadmin|schtasks|rundll32)/ nocase wide ascii
+
+    condition:
+        any of ($dde*) and $exec_action
+}
