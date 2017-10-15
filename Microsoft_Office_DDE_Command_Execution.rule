@@ -25,12 +25,13 @@ rule Microsoft_Office_DDE_Command_Execution
         // NOTE: we miss DDEa* vectors with this simplification:
         $dde_other = /<\s*w:fldChar\s+w:fldCharType\s*=\s*['"]begin['"]\s*\/>.+[^A-Za-z0-9-]DDE[b-zB-Z]+[^A-Za-z0-9-].+<w:fldChar\s+w:fldCharType\s*=\s*['"]end['"]\s*\/>/ nocase wide ascii
 
-        // this wider DDEAUTO condition encompasses $dde_auto, we keep them to retain context from the alert.
-        $dde_auto_wide = /.+[^A-Za-z0-9-]DDEAUTO[^a-z0-9-].+/ nocase wide ascii
+        // a wider DDEAUTO condition for older versions of Word.
+        $magic = /^\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1\x00\x00\x00/
+        $wide_dde_auto = /.+[^A-Za-z0-9-]DDEAUTO[^a-z0-9-].+/ nocase wide ascii
 
         // NOTE: these strings can be broken apart with XML constructs. additional post processing is required to avoid evasion.
         $exec_action = /(cmd\.exe|reg\.exe|mshta\.exe|regsvr32|wscript|powershell|bitsadmin|schtasks|rundll32)/ nocase wide ascii
 
     condition:
-        any of ($dde*) and $exec_action
+        (any of ($dde*) or ($magic at 0 and $wide_dde_auto)) and $exec_action
 }
