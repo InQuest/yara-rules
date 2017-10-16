@@ -30,7 +30,7 @@ rule Microsoft_Office_DDE_Command_Execution
         $wide_dde_auto = /.+[^A-Za-z0-9-]DDEAUTO[^a-z0-9-].+/ nocase wide ascii
 
         // NOTE: these strings can be broken apart with XML constructs. additional post processing is required to avoid evasion.
-        $exec_action = /(cmd\.exe|reg\.exe|mshta\.exe|regsvr32|wscript|powershell|bitsadmin|schtasks|rundll32)/ nocase wide ascii
+        $exec_action = /(cmd\.exe|reg\.exe|mshta\.exe|regsvr32|[wc]script|powershell|bitsadmin|schtasks|rundll32)/ nocase wide ascii
 
     condition:
         (any of ($dde*) or ($magic at 0 and $wide_dde_auto)) and $exec_action
