@@ -1,26 +1,24 @@
-// https://twitter.com/i/moments/918126999738175489
-// http://blog.inquest.net/blog/2017/10/13/microsoft-office-dde-macro-less-command-execution-vulnerability/
-// http://blog.inquest.net/blog/2017/10/14/02-microsoft-office-dde-freddie-mac-targeted-lure/
-// http://blog.inquest.net/blog/2017/10/14/01-microsoft-office-dde-sec-omb-approval-lure/
-// http://blog.inquest.net/blog/2017/10/14/03-microsoft-office-dde-poland-ransomware/
+/*
 
-rule MC_Office_DDE_Command_Exec
+ Follow the conversation on Twitter:
+
+    https://twitter.com/i/moments/918126999738175489
+
+ Read up on the exposure, mitigation, detection / hunting, and sample dissection from our blogs:
+
+    http://blog.inquest.net/blog/2017/10/13/microsoft-office-dde-macro-less-command-execution-vulnerability/
+    http://blog.inquest.net/blog/2017/10/14/02-microsoft-office-dde-freddie-mac-targeted-lure/
+    http://blog.inquest.net/blog/2017/10/14/01-microsoft-office-dde-sec-omb-approval-lure/
+    http://blog.inquest.net/blog/2017/10/14/03-microsoft-office-dde-poland-ransomware/
+
+ InQuest customers can detect related events on their network by searching for:
+ 
+    event ID 5000728, Microsoft_Office_DDE_Command_Exec
+
+*/
+
+rule MC_Office_DDE_Command_Execution
 {
-    meta:
-        Author = "InQuest Labs"
-        Category = "Malicious Characteristics"
-        File_Type = "Microsoft"
-        SubCategory1 = "Office"
-        SubCategory2 = "NA"
-        SubCategory3 = "NA"
-        Confidence = "7"
-        Creation_Date = "10/10/2017"
-        Description = "This signature detects abuse of Microsoft Dynamic Data Exchange (DDE) functionality to execute arbitrary commands. Significant user interaction is required."
-        References = "https://sensepost.com/blog/2017/macro-less-code-exec-in-msword/"
-        Revision = "2"
-        Last_Revision_Date = "10/14/2017"
-        Severity = "7"
-        EventID = "5000728"
 
     strings:
         /*
