@@ -82,7 +82,7 @@ rule MC_Office_DDE_Command_Exec
     condition:
         ((any of ($dde*) or ($magic at 0 and $wide_dde_auto)) and $exec_action)
             or
-        ($early_exit and $xml_obfuscated)
+        ($early_exit and any of ($xml_obfuscated*))
             or
         ($pure_xml_dde)
 }
