@@ -60,15 +60,17 @@ rule MC_Office_DDE_Command_Execution
         $wide_dde_auto = /.+[^A-Za-z0-9-]DDEAUTO[^a-z0-9-].+/ nocase wide ascii
 
         // obfuscated with XML. use an early exit because this is an expensive regex.
-        // NOTE: we prefer to use $xml_obfuscated, but it's not suitable for VTI hunt, perf warnings are a no go.
-        // NOTE: xml_obfuscated_{1,6} also won't fly for VTI. they are left here for reference.
+        // NOTE: this is exactly the reason we have a DFI stack ... to strip, simplify, augment, transform, and make life easier for Yara rule dev.
+        // NOTE: we prefer to use $xml_obfuscated, but it's not suitable for VTI hunt, perf warnings are a no-go.
+        // NOTE: xml_obfuscated_{1,6} also won't fly for VTI, they are left here for reference.
+        // NOTE: xml_obfuscated_{4,5} are prone to false positives, they are left here for reference.
         $early_exit       = "fldChar" nocase wide ascii
         //$xml_obfuscated   = /!?(<[^>]*>){0,10}['"]?(<[^>]*>){0,10}D(<[^>]*>){0,10}D(<[^>]*>){0,10}E(<[^>]*>){0,10}(A(<[^>]*>){0,10}U(<[^>]*>){0,10}T(<[^>]*>){0,10}O)?(<[^>]*>){0,10}['"]?/ nocase wide ascii
         //$xml_obfuscated_1 = />\s*["']?D\s*</   nocase ascii wide
         $xml_obfuscated_2 = />\s*["']?DD\s*</  nocase ascii wide
         $xml_obfuscated_3 = />\s*["']?DDE\s*</ nocase ascii wide
-        $xml_obfuscated_4 = />\s*DDE["']?\s*</ nocase ascii wide
-        $xml_obfuscated_5 = />\s*DE["']?\s*</  nocase ascii wide
+        //$xml_obfuscated_4 = />\s*DDE["']?\s*</ nocase ascii wide
+        //$xml_obfuscated_5 = />\s*DE["']?\s*</  nocase ascii wide
         //$xml_obfuscated_6 = />\s*E["']?\s*</   nocase ascii wide
 
         // fully encompassed in XML
