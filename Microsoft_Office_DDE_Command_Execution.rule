@@ -48,6 +48,9 @@ rule MC_Office_DDE_Command_Execution
                 </externalLink>
         */
 
+        // standard DDE with optional AUTO.
+        $dde = />\s*DDE(AUTO)?\s*</ nocase wide ascii
+
         // NOTE: we must remain case-insensitive but do not wish to fire on "<w:webHidden/>".
         // NOTE: nocase does not apply to character ranges ([^A-Za-z0-9-]).
         $dde_auto = /<\s*w:fldChar\s+w:fldCharType\s*=\s*['"]begin['"]\s*\/>.+[^A-Za-z0-9-]DDEAUTO[^A-Za-z0-9-].+<w:fldChar\s+w:fldCharType\s*=\s*['"]end['"]\s*\/>/ nocase wide ascii
@@ -79,8 +82,11 @@ rule MC_Office_DDE_Command_Execution
         // NOTE: these strings can be broken apart with XML constructs. additional post processing is required to avoid evasion.
         $exec_action = /(cmd\.exe|reg\.exe|mshta\.exe|regsvr32|[wc]script|powershell|bitsadmin|schtasks|rundll32)/ nocase wide ascii
 
+        // QUOTE obfuscation technique.
+        $quote_obfuscation = /w:instr\s*=\s*["']\s*QUOTE\s+\d+\s+/ nocase wide ascii
+
     condition:
-        ((any of ($dde*) or ($magic at 0 and $wide_dde_auto)) and $exec_action)
+        ((any of ($dde*) or ($magic at 0 and $wide_dde_auto)) and ($exec_action or $quote_obfuscation))
             or
         ($early_exit and any of ($xml_obfuscated*))
             or
