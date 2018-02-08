@@ -1,14 +1,16 @@
 /*
-This signature is mostly public sourced and detects an in-the-wild exploit for CVE-2018-4878.
+This signature is mostly public sourced and detects an in-the-wild exploit for CVE-2018-4878. Following the
+conversation at:
 
+    http://blog.inquest.net/blog/2018/02/07/cve-2018-4878-adobe-flash-0day-itw
     https://twitter.com/i/moments/960633253165191170
 
  InQuest customers can detect related events on their network by searching for:
  
-    event ID 5000798, CVE_2018_4878_0day_ITW
+    event ID 5000798
 */
 
-rule MC_CVE_2018_4878_0day_ITW
+rule CVE_2018_4878_0day_ITW
 {
     strings:   
         $known1 = "F:\\work\\flash\\obfuscation\\loadswf\\src" nocase wide ascii   

@@ -1,11 +1,12 @@
 /*
-Detect Microsoft Office documents with embedded Adobe Flash files. Related to:
+Detect Microsoft Office documents with embedded Adobe Flash files. Following the conversation at:
 
+    http://blog.inquest.net/blog/2018/02/07/cve-2018-4878-adobe-flash-0day-itw
     https://twitter.com/i/moments/960633253165191170
 
  InQuest customers can detect related events on their network by searching for:
  
-    event ID 3000032, Office_Document_with_Embedded_Flash_File.
+    event ID 3000032
 */
 
 rule Microsoft_Office_Document_with_Embedded_Flash_File
