@@ -1,0 +1,26 @@
+/*
+Generically detect exploitation of CVE-2018-4878, a use-after-free vulnerability affecting Adobe Flash versions up to
+and including 28.0.0.137.
+
+    https://twitter.com/i/moments/960633253165191170
+
+ InQuest customers can detect related events on their network by searching for:
+ 
+    event ID 5000805, Adobe_Flash_DRM_Use_After_Free
+*/
+
+rule MC_Adobe_Flash_DRM_Use_After_Free
+{    
+    strings:
+        $as   = "package"
+        $exp1 = "import com.adobe.tvsdk.mediacore.MediaPlayer"
+        $exp2 = "createDispatcher("
+        $exp3 = "createMediaPlayer("
+        $exp4 = "drmManager.initialize("    // com.adobe.tvsdk.mediacore.DRMOperationCompleteListener;
+        $exp5 = "push(this)"
+        $exp6 = "push(null)"
+        $exp6 = /pop\(\)\..+\s*=\s*.+pop\(\);/
+    condition:
+        $as at 0 and all of them
+}
+
