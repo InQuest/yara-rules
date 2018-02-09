@@ -25,6 +25,8 @@ rule Adobe_Flash_DRM_Use_After_Free
         $vara_2 = "push(null)"
         $vara_3 = /pop\(\)\..+\s*=\s*.+pop\(\)/
         $varb_1 = /push\([^\)]{1,24}drmManager.initialize/
+
+        // all the requisite pieces in a single function.
         $varc_1 = /\{[^\}]+createDispatcher\s*\([^\}]+createMediaPlayer\s*\([^\}]+drmManager\.initialize\s*\([^\}]+=\s*null[^\}]+\}/
 
     condition:
