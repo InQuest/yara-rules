@@ -12,15 +12,17 @@ and including 28.0.0.137. Following the conversation at:
 
 rule Adobe_Flash_DRM_Use_After_Free
 {    
+    meta:
+        note  = "This YARA rule is intended to run atop of decompiled Flash."
     strings:
         $as   = "package"
         $exp1 = "import com.adobe.tvsdk.mediacore.MediaPlayer"
         $exp2 = "createDispatcher("
         $exp3 = "createMediaPlayer("
-        $exp4 = "drmManager.initialize("    // com.adobe.tvsdk.mediacore.DRMOperationCompleteListener;
+        $exp4 = "drmManager.initialize("     // com.adobe.tvsdk.mediacore.DRMOperationCompleteListener;
         $exp5 = "push(this)"
         $exp6 = "push(null)"
-        $exp6 = /pop\(\)\..+\s*=\s*.+pop\(\);/
+        $exp7 = /(pop\(\)\..+\s*=\s*.+pop\(\)|push\([^\)]{1,24}drmManager.initialize)/
     condition:
         $as at 0 and all of them
 }
