@@ -38,14 +38,23 @@ rule CVE_2018_4878_0day_ITW
         // 1a3269253784f76e3480e4b3de312dfee878f99045ccfd2231acb5ba57d8ed0d.fws exploit specific multivar definition.
         $observed_multivar_1 = /999(\x05[a-z]10[0-9][0-9]){100}/ nocase wide ascii
         $observed_multivar_2 = /999(\x05[a-z]11[0-9][0-9]){100}/ nocase wide ascii
-        $cws_magic         = { 46 57 53 }
+        $flash_magic         = { (43 | 46 | 5A) 57 53 }
+
+        // 53fa83d02cc60765a75abd0921f5084c03e0b7521a61c4260176e68b6a402834 exploit specific.
+        $exp53_1 = "C:\\Users\\Miha\\AdobeMinePoC"
+        $exp53_2 = "UAFGenerator"
+        $exp53_3 = "shellcodBytes"
+        $exp53_4 = "DRM_obj"
+        $exp53_5 = "MainExp"
 
     condition:
-        ($cws_magic at 0 and all of ($observed_multivar*))
+        ($flash_magic at 0 and all of ($observed_multivar*))
             or
         (any of ($known*))
             or
         (all of ($header*) and all of ($title*) and 3 of ($loader*))
             or
         (all of ($pdb*) and all of ($header*) and 1 of ($loader*))
+            or
+        ($flash_magic at 0 and all of ($exp53*))
 }
