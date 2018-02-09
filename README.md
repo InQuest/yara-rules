@@ -8,5 +8,5 @@ A collection of Yara rules we wish to share with the world. These rules should n
   * [CVE_2018_4878_0day_ITW](https://github.com/InQuest/yara-rules/blob/master/CVE_2018_4878_0day_ITW.rule)
   * [Microsoft_Office_Document_with_Embedded_Flash_File](https://github.com/InQuest/yara-rules/blob/master/Microsoft_Office_Document_with_Embedded_Flash_File.rule)
   * [Adobe_Flash_DRM_Use_After_Free](https://github.com/InQuest/yara-rules/blob/master/Adobe_Flash_DRM_Use_After_Free.rule)
-  * [Blog](http://blog.inquest.net/blog/2018/02/07/cve-2018-4878-adobe-flash-0day-itw)
+  * [Blog: Adobe Flash MediaPlayer DRM Use-after-free Vulnerability](http://blog.inquest.net/blog/2018/02/07/cve-2018-4878-adobe-flash-0day-itw)
   * Follow highlights of the conversation on Twitter from this ["moment" we maintain](https://twitter.com/i/moments/960633253165191170).
