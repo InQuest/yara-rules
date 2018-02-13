@@ -23,8 +23,9 @@ rule CVE_2018_4878_0day_ITW
         // EMBEDDED FLASH OBJECT BIN HEADER   
         $header = "rdf:RDF" wide ascii   
     
-        // OBJECT APPLICATION TYPE TITLE   
-        $title = "Adobe Flex" wide ascii   
+        // OBJECT APPLICATION TYPE TITLE
+        // disabled 2/13/18 due to false positive on 2a75ff1acdf9141bfb836343f94f4a73b8c64b226b0e2ae30a69e9aacc472cba
+        // $title = "Adobe Flex" wide ascii   
     
         // PDB PATH    
         $pdb = "F:\\work\\flash\\obfuscation\\loadswf\\src" wide ascii   
@@ -52,8 +53,9 @@ rule CVE_2018_4878_0day_ITW
             or
         (any of ($known*))
             or
-        (all of ($header*) and all of ($title*) and 3 of ($loader*))
-            or
+        // disabled 2/13/18 due to false positive on 2a75ff1acdf9141bfb836343f94f4a73b8c64b226b0e2ae30a69e9aacc472cba
+        //(all of ($header*) and all of ($title*) and 3 of ($loader*))
+        //    or
         (all of ($pdb*) and all of ($header*) and 1 of ($loader*))
             or
         ($flash_magic at 0 and all of ($exp53*))
