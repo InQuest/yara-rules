@@ -32,5 +32,3 @@ rule Adobe_Flash_DRM_Use_After_Free
     condition:
         $as at 0 and all of ($exp*) and (all of ($vara*) or $varb_1 or $varc_1)
 }
-}
-
