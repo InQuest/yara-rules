@@ -37,7 +37,9 @@ We'll continue to earmark interesting tidbits around the subject matter here:
 
     https://twitter.com/i/moments/994122868949770240
 
-We have two versions of this rule for your hunting pleasure:
+We have two versions of this rule for your hunting pleasure. It's worth mentioning that searching
+through our past few months of harvested RTF samples ... only the 0day sample in question triggered
+an alert. Certainly, the usage of this obfuscation technique will ramp up.
 */
 
 rule RTF_Byte_Nibble_Obfuscation_method1
