@@ -40,6 +40,12 @@ We'll continue to earmark interesting tidbits around the subject matter here:
 We have two versions of this rule for your hunting pleasure. It's worth mentioning that searching
 through our past few months of harvested RTF samples ... only the 0day sample in question triggered
 an alert. Certainly, the usage of this obfuscation technique will ramp up.
+
+Update July 2018:
+
+    https://www.fireeye.com/blog/threat-research/2018/07/microsoft-office-vulnerabilities-used-to-distribute-felixroot-backdoor.html
+
+
 */
 
 rule RTF_Byte_Nibble_Obfuscation_method1
