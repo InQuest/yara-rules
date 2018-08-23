@@ -17,7 +17,7 @@ malicious crafted PDF. Original write-up from [CheckPoint](https://research.chec
 * [RTF_Byte_Nibble_Obfuscation](https://github.com/InQuest/yara-rules/blob/master/RTF_Byte_Nibble_Obfuscation.rule)
   * This signature is designed to detect the obfuscation method described by Boris Larin here [Disappearing bytes: Reverse engineering the MS Office RTF parser](https://securelist.com/disappearing-bytes/84017/). This obfuscation method is rarely seen but was used in the distribution of CVE-2018-8174 0day discovered in-the-wild.
   * We'll continue to earmark interesting tidbits around the subject matter in this [Twitter Moment](https://twitter.com/i/moments/994122868949770240).
-* Hunting Suspicious IQY Files
+* [Hunting Suspicious IQY Files](http://blog.inquest.net/blog/2018/08/23/hunting-iqy-files-with-yara/)
   * [IQY_File](https://github.com/InQuest/yara-rules/blob/master/IQY_File.rule)
   * [IQY_File_With_Suspicious_URL](https://github.com/InQuest/yara-rules/blob/master/IQY_File_With_Suspicious_URL.rule)
   * [IQY_File_With_Pivot_Extension_URL.rule](https://github.com/InQuest/yara-rules/blob/master/IQY_File_With_Pivot_Extension_URL.rule)
