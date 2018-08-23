@@ -2,7 +2,7 @@ rule IQY_File
 {
     meta:
         Author = "InQuest Labs"
-        Website = "https://www.inquest.net"
+        Reference = "https://www.inquest.net"
         Description = "Detects all Excel IQY files by identifying the WEB 'magic' on the first line and also includes any URL."
         Severity = "0"
 
