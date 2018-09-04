@@ -36,10 +36,11 @@ rule Hidden_Bee_Elements
                 } t_bee_hdr;
         */
 
-        $magic = { 01 03 00 10 }
-        $dll   = /(ntdll|kernel32|advapi32|cabinet|msvcrt|ws2_32|phlpape)\.dll/ nocase ascii wide fullword
-        $http  = /(aHR\x30cDovL[\x2b\x2f-\x39w-z]|[\x2b\x2f-\x39A-Za-z][\x2b\x2f-\x39A-Za-z][\x31\x35\x39BFJNRVZdhlptx]odHRwOi\x38v[\x2b\x2f-\x39A-Za-z]|[\x2b\x2f-\x39A-Za-z][\x32GWm]h\x30dHA\x36Ly[\x2b\x2f\x38-\x39])/
-        $https = /(aHR\x30cHM\x36Ly[\x2b\x2f\x38-\x39]|[\x2b\x2f-\x39A-Za-z][\x2b\x2f-\x39A-Za-z][\x31\x35\x39BFJNRVZdhlptx]odHRwczovL[\x2b\x2f-\x39w-z]|[\x2b\x2f-\x39A-Za-z][\x32GWm]h\x30dHBzOi\x38v[\x2b\x2f-\x39A-Za-z])/
+        $magic   = { 01 03 00 10 }
+        $dll     = /(ntdll|kernel32|advapi32|cabinet|msvcrt|ws2_32|phlpape)\.dll/ nocase ascii wide fullword
+        
+        // case-insensitive base64 http:// or https:// URI prefix
+        $b64_uri = /([\x2b\x2f-\x39A-Za-z][\x2b\x2f-\x39A-Za-z][\x31\x35\x39BFJNRVZdhlptx][Io][Vd][FH][R][Qw][O]i\x38v[\x2b\x2f-\x39A-Za-z]|[\x2b\x2f-\x39A-Za-z][\x2b\x2f-\x39A-Za-z][\x31\x35\x39BFJNRVZdhlptx][Io][Vd][FH][R][Qw][Uc][z]ovL[\x2b\x2f-\x39w-z]|[\x2b\x2f-\x39A-Za-z][\x30\x32EGUWkm][h][\x30U][Vd][FH][A]\x36Ly[\x2b\x2f\x38-\x39]|[\x2b\x2f-\x39A-Za-z][\x30\x32EGUWkm][h][\x30U][Vd][FH][B][Tz][O]i\x38v[\x2b\x2f-\x39A-Za-z]|[Sa][FH][R][\x30U][Uc][D]ovL[\x2b\x2f-\x39w-z]|[Sa][FH][R][\x30U][Uc][FH][M]\x36Ly[\x2b\x2f\x38-\x39])/
 
     condition:
         $magic at 0
@@ -51,6 +52,6 @@ rule Hidden_Bee_Elements
                 or
 
             // base64 encoded URLs.
-            any of ($http*)
+            $b64_uri
         )
 }
