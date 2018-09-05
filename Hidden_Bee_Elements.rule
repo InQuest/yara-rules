@@ -36,8 +36,8 @@ rule Hidden_Bee_Elements
                 } t_bee_hdr;
         */
 
-        $magic   = { 01 03 00 10 }
-        $dll     = /(ntdll|kernel32|advapi32|cabinet|msvcrt|ws2_32|phlpape)\.dll/ nocase ascii wide fullword
+        $magic = { 01 03 00 10 }
+        $dll   = /(ntdll|kernel32|advapi32|cabinet|msvcrt|ws2_32|phlpape)\.dll/ nocase ascii wide fullword
         
         // case-insensitive base64 http:// or https:// URI prefix
         // algorithm behind this generation magic: http://www.erlang-factory.com/upload/presentations/225/ErlangFactorySFBay2010-RobKing.pdf
