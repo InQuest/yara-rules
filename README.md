@@ -7,6 +7,8 @@ A collection of Yara rules we wish to share with the world. These rules should n
   * [Adobe_Flash_DRM_Use_After_Free](https://github.com/InQuest/yara-rules/blob/master/Adobe_Flash_DRM_Use_After_Free.rule)
   * [Blog: Adobe Flash MediaPlayer DRM Use-after-free Vulnerability](http://blog.inquest.net/blog/2018/02/07/cve-2018-4878-adobe-flash-0day-itw)
   * Follow highlights of the conversation on Twitter from this ["moment" we maintain](https://twitter.com/i/moments/960633253165191170).
+* [Embedded PE Files](https://github.com/InQuest/yara-rules/blob/master/Embedded_PE.rule)
+  * Discover embedded PE files, without relying on easily stripped/modified header strings.
 * [Hidden Bee Custom Windows Executable Format](https://github.com/InQuest/yara-rules/blob/master/Hidden_Bee_Elements.rule)
   * [Malwarebytes Blog](https://blog.malwarebytes.com/threat-analysis/2018/08/reversing-malware-in-a-custom-format-hidden-bee-elements/)
   * [Malware Samples](https://github.com/InQuest/malware-samples/tree/master/2018-08-Hidden-Bee-Elements)
