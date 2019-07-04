@@ -6,36 +6,41 @@ conversation at:
     https://twitter.com/i/moments/960633253165191170
 
  InQuest customers can detect related events on their network by searching for:
- 
+
     event ID 5000798
 */
 
 rule CVE_2018_4878_0day_ITW
 {
-    strings:   
-        $known1 = "F:\\work\\flash\\obfuscation\\loadswf\\src" nocase wide ascii   
-        $known2 = "G:\\FlashDeveloping" nocase wide ascii   
-        $known3 = "Z:\\Main\\zero day\\Troy" nocase wide ascii   
-        $known4 = "C:\\Users\\Rose\\Adobe Flash Builder 4.6\\ExpAll\\src" nocase wide ascii   
-        $known5 = "F:\\work\\flash\\obfuscation\\loadswf\\src" nocase wide ascii   
+    meta:
+        Author      = "InQuest Labs"
+        URL         = "https://github.com/InQuest/yara-rules"
+        Description = "This signature is mostly public sourced and detects an in-the-wild exploit for CVE-2018-4878."
+
+    strings:
+        $known1 = "F:\\work\\flash\\obfuscation\\loadswf\\src" nocase wide ascii
+        $known2 = "G:\\FlashDeveloping" nocase wide ascii
+        $known3 = "Z:\\Main\\zero day\\Troy" nocase wide ascii
+        $known4 = "C:\\Users\\Rose\\Adobe Flash Builder 4.6\\ExpAll\\src" nocase wide ascii
+        $known5 = "F:\\work\\flash\\obfuscation\\loadswf\\src" nocase wide ascii
         $known6 = "admincenter/files/boad/4/manager.php" nocase wide ascii
 
-        // EMBEDDED FLASH OBJECT BIN HEADER   
-        $header = "rdf:RDF" wide ascii   
-    
+        // EMBEDDED FLASH OBJECT BIN HEADER
+        $header = "rdf:RDF" wide ascii
+
         // OBJECT APPLICATION TYPE TITLE
         // disabled 2/13/18 due to false positive on 2a75ff1acdf9141bfb836343f94f4a73b8c64b226b0e2ae30a69e9aacc472cba
-        // $title = "Adobe Flex" wide ascii   
-    
-        // PDB PATH    
-        $pdb = "F:\\work\\flash\\obfuscation\\loadswf\\src" wide ascii   
-    
-        // LOADER STRINGS   
-        $loader1 = "URLRequest" wide ascii   
-        $loader2 = "URLLoader" wide ascii   
-        $loader3 = "loadswf" wide ascii   
-        $loader4 = "myUrlReqest" wide ascii   
-      
+        // $title = "Adobe Flex" wide ascii
+
+        // PDB PATH
+        $pdb = "F:\\work\\flash\\obfuscation\\loadswf\\src" wide ascii
+
+        // LOADER STRINGS
+        $loader1 = "URLRequest" wide ascii
+        $loader2 = "URLLoader" wide ascii
+        $loader3 = "loadswf" wide ascii
+        $loader4 = "myUrlReqest" wide ascii
+
         // 1a3269253784f76e3480e4b3de312dfee878f99045ccfd2231acb5ba57d8ed0d.fws exploit specific multivar definition.
         $observed_multivar_1 = /999(\x05[a-z]10[0-9][0-9]){100}/ nocase wide ascii
         $observed_multivar_2 = /999(\x05[a-z]11[0-9][0-9]){100}/ nocase wide ascii
