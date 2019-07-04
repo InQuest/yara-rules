@@ -76,6 +76,10 @@ For those of you without VT access, those samples are available in our malware-s
 
 rule RTF_Byte_Nibble_Obfuscation_method1
 {
+    meta:
+        Author      = "InQuest Labs"
+        URL         = "https://github.com/InQuest/yara-rules"
+        Description = "This signature is designed to detect the obfuscation method described by Boris Larin here https://securelist.com/disappearing-bytes/84017/"
     strings:
         $magic    = {7b 5c 72}
         $update   = "\\objupdate" nocase

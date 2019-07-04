@@ -12,13 +12,17 @@
     http://blog.inquest.net/blog/2017/10/14/03-microsoft-office-dde-poland-ransomware/
 
  InQuest customers can detect related events on their network by searching for:
- 
+
     event ID 5000728, Microsoft_Office_DDE_Command_Exec
 
 */
 
 rule MC_Office_DDE_Command_Execution
 {
+    meta:
+        Author      = "InQuest Labs"
+        URL         = "https://github.com/InQuest/yara-rules"
+        Description = "This rule looks for a variety of DDE command execution techniques."
 
     strings:
         /*

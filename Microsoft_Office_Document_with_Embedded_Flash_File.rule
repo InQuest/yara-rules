@@ -5,12 +5,16 @@ Detect Microsoft Office documents with embedded Adobe Flash files. Following the
     https://twitter.com/i/moments/960633253165191170
 
  InQuest customers can detect related events on their network by searching for:
- 
+
     event ID 3000032
 */
 
 rule Microsoft_Office_Document_with_Embedded_Flash_File
 {
+    meta:
+        Author      = "InQuest Labs"
+        URL         = "https://github.com/InQuest/yara-rules"
+        Description = "Detect Microsoft Office documents with embedded Adobe Flash files."
     strings:
         $a = { 6e db 7c d2 6d ae cf 11 96 b8 44 45 53 54 00 00 }
         $b = { 57 53 }
