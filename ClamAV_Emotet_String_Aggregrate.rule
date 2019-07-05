@@ -1743,7 +1743,6 @@ rule ClamAV_Emotet_String_Aggregate
         $ = "siWzCGiO = ZjXwAQLQS + djrPUZFuM + BclUwON + SukzncS"
         $ = "sifxsbscux/Mzvrvrnidsv"
         $ = "soHZJH = 30973 + DZXmU + (99000 * CDbl(nFpqX) - jMCZM / CSng(10566) - QXnRNK / Hex(TaNjB) + 9437 - 5465"
-        $ = "ssStartup"
         $ = "ssUp3vV\" + (\"115\" + \"990\") + \"Su7RZqP0\" + (\"ki7l0aC"
         $ = "stMiVSQOwSfBctplTTMoTTSI = 63283541"
         $ = "synergies78 = Array(Steel97, userfacing1, Park30, reciprocal90, TurkishLira30, dynamic33, wireless52"
