@@ -1,4 +1,4 @@
-rule EC_Base64_Encoded_Powershell_Directives
+rule Base64_Encoded_Powershell_Directives
 {
     meta:
         Author      = "InQuest Labs"
