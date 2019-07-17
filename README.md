@@ -3,7 +3,7 @@ A collection of YARA rules we wish to share with the world. These rules should n
 
 * Base64 Encoded Powershell
   * [YARA](https://github.com/InQuest/yara-rules/blob/master/Base64_Encoded_Powershell_Directives.rule)
-  * [BLOG](http://www.inquest.net/blog)
+  * [Blog](http://www.inquest.net/blog)
   * [Samples](https://github.com/InQuest/malware-samples/tree/master/2019-07-Base64-Encoded-Powershell-Directives)
 * CVE-2018-4878: Adobe Flash MediaPlayer DRM user-after-free Vulnerability
   * [CVE_2018_4878_0day_ITW](https://github.com/InQuest/yara-rules/blob/master/CVE_2018_4878_0day_ITW.rule)
