@@ -2,7 +2,7 @@ rule Base64_Encoded_Powershell_Directives
 {
     meta:
         Author      = "InQuest Labs"
-        Reference   = ""
+        Reference   = "https://inquest.net/blog/2019/07/19/base64-encoded-powershell-pivots"
         Samples     = "https://github.com/InQuest/malware-samples/tree/master/2019-07-Base64-Encoded-Powershell-Directives"
         Description = "This signature detects base64 encoded Powershell directives."
 
