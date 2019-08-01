@@ -1,0 +1,15 @@
+// any Flash files with any AV hits.
+// note that we disqualify PE here due to misclassification.
+rule malflash_hunter
+{
+    strings:
+        $magic = { (43 | 46 | 5A) 57 53 }
+
+    condition:
+        new_file and positives > 0 and not (uint16be(0x0) == 0x4d5a) and
+        (
+            file_type contains "flash" or
+            tags      contains "flash" or
+            $magic at 0
+        )
+}

@@ -1,0 +1,10 @@
+// any office files with macros.
+rule macro_hunter
+{
+    strings:
+        $ole_marker     = {D0 CF 11 E0 A1 B1 1A E1}
+        $macro_sheet_h1 = {85 00 ?? ?? ?? ?? ?? ?? 01 01}
+        $macro_sheet_h2 = {85 00 ?? ?? ?? ?? ?? ?? 02 01}
+    condition:
+        new_file and (tags contains "macros" or ($ole_marker at 0 and 1 of ($macro_sheet_h*)))
+}

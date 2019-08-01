@@ -1,0 +1,20 @@
+// any office or PDF documents with a phishing hit.
+rule phish_hunter
+{
+    strings:
+        $pdf_header = "%PDF"
+    condition:
+        new_file and
+        (
+            file_type contains "office" or
+            file_type contains "pdf"    or
+            tags      contains "office" or
+            tags      contains "pdf"    or
+            $pdf_header in (0..1024)
+            
+        )
+            and
+        (
+            signatures matches /phish/i
+        )
+}

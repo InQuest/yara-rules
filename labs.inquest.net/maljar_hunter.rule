@@ -1,0 +1,12 @@
+// any JAR files with any AV hits.
+rule maljar_hunter
+{
+    condition:
+        new_file and positives > 0 and
+        (
+            tags      contains "jar"   or
+            tags      contains "class" or
+            file_type contains "jar"   or
+            file_type contains "class"
+        )
+}

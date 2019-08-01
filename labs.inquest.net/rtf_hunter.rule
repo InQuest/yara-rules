@@ -1,0 +1,13 @@
+// any RTF files with any AV hits.
+rule rtf_hunter
+{
+    strings:
+        $magic = "{\\rt"
+    condition:
+        new_file and positives > 0 and
+        (
+            file_type contains "rtf" or
+            tags      contains "rtf" or
+            $magic    at 0
+        )
+}

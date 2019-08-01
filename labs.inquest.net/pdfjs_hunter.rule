@@ -1,0 +1,13 @@
+// any PDF files with JavaScript.
+rule pdfjs_hunter
+{
+    strings:
+        $pdf_header = "%PDF"
+    condition:
+        new_file and
+        (
+            file_type contains "pdf" or
+            $pdf_header in (0..1024)
+        )
+        and tags contains "js-embedded"
+}
