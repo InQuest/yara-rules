@@ -1,0 +1,21 @@
+// any office document with any AV hits or with embedded ActiveX.
+rule maldoc_hunter
+{
+    strings:
+        $docx_magic = /^\x50\x4B\x03\x04\x14\x00\x06\x00/
+        $activex_1  = "word/activeX/activeX1.bin"
+        $activex_2  = "word/activeX/activeX1.xml"
+    condition:
+        new_file and not (uint16be(0x0) == 0x4d5a)
+        and
+        (
+            file_type contains "office" or
+            tags      contains "office" or
+            $docx_magic at 0
+        )
+        and
+        (
+            positives > 0 or
+            all of ($activex*)
+        )
+}
