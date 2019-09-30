@@ -23,6 +23,8 @@ A collection of YARA rules we wish to share with the world. These rules should n
   * [IQY_File](https://github.com/InQuest/yara-rules/blob/master/IQY_File.rule)
   * [IQY_File_With_Suspicious_URL](https://github.com/InQuest/yara-rules/blob/master/IQY_File_With_Suspicious_URL.rule)
   * [IQY_File_With_Pivot_Extension_URL.rule](https://github.com/InQuest/yara-rules/blob/master/IQY_File_With_Pivot_Extension_URL.rule)
+* [labs.inquest.net](https://github.com/InQuest/yara-rules/tree/master/labs.inquest.net)
+  * VirusTotal Intelligence hunt rules that feed the [InQuest Labs](https://labs.inquest.net) data portal.
 * [Microsoft Excel Hidden Macro Sheets](https://github.com/InQuest/yara-rules/blob/master/Excel_Hidden_Macro_Sheet.rule)
   * [Blog: "Carving Sneaky XLM Files"](http://blog.inquest.net/blog/2019/01/29/Carving-Sneaky-XLM-Files/)
 * [Microsoft_Office_DDE_Command_Execution](https://github.com/InQuest/yara-rules/blob/master/Microsoft_Office_DDE_Command_Execution.rule)
