@@ -40,3 +40,5 @@ malicious crafted PDF. Original write-up from [CheckPoint](https://research.chec
 * [RTF_Byte_Nibble_Obfuscation](https://github.com/InQuest/yara-rules/blob/master/RTF_Byte_Nibble_Obfuscation.rule)
   * This signature is designed to detect the obfuscation method described by Boris Larin here [Disappearing bytes: Reverse engineering the MS Office RTF parser](https://securelist.com/disappearing-bytes/84017/). This obfuscation method is rarely seen but was used in the distribution of CVE-2018-8174 0day discovered in-the-wild.
   * We'll continue to earmark interesting tidbits around the subject matter in this [Twitter Moment](https://twitter.com/i/moments/994122868949770240).
+  * [Suspicious Symbolic Link Files that contain Excel 4.0 macros](https://github.com/InQuest/yara-rules/blob/master/Symbolic_Link_Files_DLL_Reference_Suspicious_Characteristics.rule) Or [File Characteristics](https://github.com/InQuest/yara-rules/blob/master/Symbolic_Link_Files_Macros_File_Characteristic.rule)
+   * These signatures detect Symbolic Link (SLK) files that contain Excel 4.0 macros:[Blog](https://outflank.nl/blog/2019/10/30/abusing-the-sylk-file-format/)
