@@ -3,7 +3,7 @@ rule Symbolic_Link_Files_DLL_Reference_Suspicious_Characteristics
 
 	meta:
 		Author = "InQuest Labs"
-    URL         = "https://github.com/InQuest/yara-rules/edit/master/Symbolic_Link_Files_Macros_File_Characteristic.rule"
+    URL         = "https://github.com/InQuest/yara-rules/blob/master/Symbolic_Link_Files_DLL_Reference_Suspicious_Characteristics.rule"
 		Description = "This signature detects Microsoft Excel Symbolic Link (SLK) files that contain reference to DLL files.  While not inherently malicious, these SLK files can be used used by attackers to evade detection and deliver malicious payloads."
 		References = "https://outflank.nl/blog/2019/10/30/abusing-the-sylk-file-format/"
 
