@@ -100,6 +100,6 @@ rule MC_Office_DDE_Command_Execution
        	    // '{\rt' (note that full header is *NOT* required: '{\rtf1')
 	    // trigger = '{\rt' nocase
             // generated via https://labs.inquest.net/tools/yara/iq-uint-trigger
-    	    for any i in (0..30) : ((uint32be(i) | 0x2020) == 0x7b5c7274 and $exec_action_reg)
+    	    for any i in (0..30) : ((uint32be(i) | 0x2020) == 0x7b5c7274 and $exec_action)
         )
 }
