@@ -46,5 +46,5 @@ malicious crafted PDF. Original write-up from [CheckPoint](https://research.chec
   * We'll continue to earmark interesting tidbits around the subject matter in this [Twitter Moment](https://twitter.com/i/moments/994122868949770240).
 * [Suspicious Symbolic Link Files that contain Excel 4.0 macros](https://github.com/InQuest/yara-rules/blob/master/Symbolic_Link_Files_DLL_Reference_Suspicious_Characteristics.rule) Or [File Characteristics](https://github.com/InQuest/yara-rules/blob/master/Symbolic_Link_Files_Macros_File_Characteristic.rule)
    * These signatures detect Symbolic Link (SLK) files that contain Excel 4.0 macros described [here](https://outflank.nl/blog/2019/10/30/abusing-the-sylk-file-format/) by Stan Hegt.
-   * [CVE-2020-0601](https://github.com/InQuest/yara-rules/blob/master/Signed_Executable_With_Custom_Elliptic_Curve_Parameters.rule)
+ * [CVE-2020-0601](https://github.com/InQuest/yara-rules/blob/master/Signed_Executable_With_Custom_Elliptic_Curve_Parameters.rule)
   * This signature detects a Microsoft Windows executable that has been signed using Elliptic Curve Cryptography (ECC) certificates with an explicit curve.
