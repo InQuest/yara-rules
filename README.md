@@ -31,6 +31,8 @@ A collection of YARA rules we wish to share with the world. These rules should n
   * VirusTotal Intelligence hunt rules that feed the [InQuest Labs](https://labs.inquest.net) data portal.
 * [Microsoft Excel Hidden Macro Sheets](https://github.com/InQuest/yara-rules/blob/master/Excel_Hidden_Macro_Sheet.rule)
   * [Blog: "Carving Sneaky XLM Files"](http://blog.inquest.net/blog/2019/01/29/Carving-Sneaky-XLM-Files/)
+* [Microsoft Excel Data Connection](https://github.com/InQuest/yara-rules/blob/master/Microsoft_Excel_Data_Connection.rule)
+  * [Blog: "Getting Sneakier: Hidden Sheets, Data Connections, and XLM Macros"](https://inquest.net/blog/2020/03/18/Getting-Sneakier-Hidden-Sheets-Data-Connections-and-XLM-Macros)
 * [Microsoft_Office_DDE_Command_Execution](https://github.com/InQuest/yara-rules/blob/master/Microsoft_Office_DDE_Command_Execution.rule)
   * Blogs: [Overview, Hunting, and Mitigation](http://blog.inquest.net/blog/2017/10/13/microsoft-office-dde-macro-less-command-execution-vulnerability/), [Freddie Mac Targeted Lure](http://blog.inquest.net/blog/2017/10/14/02-microsoft-office-dde-freddie-mac-targeted-lure/), [SEC OMB Masquerading Lure](http://blog.inquest.net/blog/2017/10/14/01-microsoft-office-dde-sec-omb-approval-lure/), [Vortex Ransomware Targeting Poland](http://blog.inquest.net/blog/2017/10/14/03-microsoft-office-dde-poland-ransomware/).
   * Follow highlights of the conversation on Twitter from this ["moment" we maintain](https://twitter.com/i/moments/918126999738175489).
