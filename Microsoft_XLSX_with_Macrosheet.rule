@@ -2,8 +2,8 @@ rule Microsoft_XLSX_with_Macrosheet
 {
     meta:
         Author      = "InQuest Labs"
-        URL         = ""
-        Description = "" 
+        URL         = "https://inquest.net/blog/2020/05/06/ZLoader-4.0-Macrosheets-Evolution"
+        Description = "Basic hunt rule for XLS* with macrosheets." 
 
     strings:
         $magic_xlsx  = /^\x50\x4B\x03\x04/
