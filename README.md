@@ -36,6 +36,10 @@ A collection of YARA rules we wish to share with the world. These rules should n
 * [Microsoft_Office_DDE_Command_Execution](https://github.com/InQuest/yara-rules/blob/master/Microsoft_Office_DDE_Command_Execution.rule)
   * Blogs: [Overview, Hunting, and Mitigation](http://blog.inquest.net/blog/2017/10/13/microsoft-office-dde-macro-less-command-execution-vulnerability/), [Freddie Mac Targeted Lure](http://blog.inquest.net/blog/2017/10/14/02-microsoft-office-dde-freddie-mac-targeted-lure/), [SEC OMB Masquerading Lure](http://blog.inquest.net/blog/2017/10/14/01-microsoft-office-dde-sec-omb-approval-lure/), [Vortex Ransomware Targeting Poland](http://blog.inquest.net/blog/2017/10/14/03-microsoft-office-dde-poland-ransomware/).
   * Follow highlights of the conversation on Twitter from this ["moment" we maintain](https://twitter.com/i/moments/918126999738175489).
+* [Microsoft XLSX with Macrosheet](https://github.com/InQuest/yara-rules/blob/master/Microsoft_XLSX_with_Macrosheet.rule)
+  * [Blog: "Zloader 4.0 Macrosheet Evolution"](https://inquest.net/blog/2020/05/06/ZLoader-4.0-Macrosheets-Evolution)
+  * [Github Hosted Samples and Macrosheet Extractions](https://github.com/InQuest/malware-samples/tree/master/2020-05-ZLoader-Evolution)
+  * [InQuest Labs Samples by Heuristic Match](https://labs.inquest.net/dfi/search/alert/Macrosheet%20CHAR%20Obfuscation)
 * [MSIExec Pivot](https://github.com/InQuest/yara-rules/blob/master/MSIExec_Pivot.rule)
   * [Blog: "Carving Sneaky XLM Files"](http://blog.inquest.net/blog/2019/01/29/Carving-Sneaky-XLM-Files/)
   * [Reference: Custom Action Type 19](https://docs.microsoft.com/en-us/windows/desktop/msi/custom-action-type-19)
