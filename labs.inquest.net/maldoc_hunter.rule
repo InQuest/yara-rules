@@ -2,20 +2,30 @@
 rule maldoc_hunter
 {
     strings:
-        $docx_magic = /^\x50\x4B\x03\x04\x14\x00\x06\x00/
-        $activex_1  = "word/activeX/activeX1.bin"
-        $activex_2  = "word/activeX/activeX1.xml"
-    condition:
+        $ole_magic   = {D0 CF 11 E0 A1 B1 1A E1}
+		$docx_magic  = /^\x50\x4B\x03\x04\x14\x00\x06\x00/
+        $activex_1   = "word/activeX/activeX1.bin"
+        $activex_2   = "word/activeX/activeX1.xml"
+		$suspicious1 = { FF D8 FF E?} 
+        $suspicious2 = { FF E1 ?? ?? 45 78 69 66 00 }
+        $suspicious3 = "Xor" nocase wide ascii 
+        $suspicious4 = "Followed Hyperlink" nocase wide ascii
+        $suspicious5 = "equation native" nocase wide ascii
+        $suspicious6 = "Microsoft Enhanced Cryptographic Provider" nocase wide ascii
+        $suspicious7 = "EncryptedPackage" nocase wide ascii
+	condition:
         new_file and not (uint16be(0x0) == 0x4d5a)
         and
         (
             file_type contains "office" or
             tags      contains "office" or
-            $docx_magic at 0
+            $docx_magic at 0 or
+            $ole_magic  at 0
         )
         and
         (
             positives > 0 or
-            all of ($activex*)
+            all of ($activex*) or
+            any of ($suspicious*)
         )
 }
