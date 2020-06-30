@@ -1,0 +1,19 @@
+// added on 2019-10-27
+rule xsl_hunter
+{
+		strings:
+			  $xml = "<?xml" nocase
+    		$re1 = "<msxsl:script"
+    		$js1 = "JavaScript" nocase
+    		$js2 = "JScript"    nocase
+		condition:
+			new_file and $xml in (0 .. 100) and $re1 and (any of ($js*))
+}
+
+// added on 2019-12-04
+rule slk_hunter
+{
+    condition:
+        /* trigger = 'ID;P' */
+        new_file and (uint32be(0x0) == 0x49443b50)
+}
