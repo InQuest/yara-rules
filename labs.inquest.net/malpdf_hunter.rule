@@ -1,0 +1,13 @@
+rule malpdf_hunter
+{
+    strings:
+        $pdf_header = "%PDF"
+        $encrypted  = "/Encrypt"
+    condition:
+        new_file and
+        (
+            file_type contains "pdf" or
+            $pdf_header in (0..1024)
+        )
+        and (positives > 0 or $encrypted)
+}
