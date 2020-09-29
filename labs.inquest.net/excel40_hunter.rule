@@ -25,7 +25,7 @@ rule excel40_hunter
     condition:
         new_file and
         (
-            ($ole_marker in (0..1024) and (entr1 of ($macro_sheet_h*) or ($url and $dconn) or $velvet_sweatshop or math.entropy(0, filesize) >= 7.5))
+            ($ole_marker in (0..1024) and (1 of ($macro_sheet_h*) or ($url and $dconn) or $velvet_sweatshop or math.entropy(0, filesize) >= 7.5))
             or
             ($magic_xlsx at 0 and $anchor_xlsx)
         )
