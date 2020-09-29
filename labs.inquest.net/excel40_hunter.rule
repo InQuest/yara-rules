@@ -23,7 +23,7 @@ rule excel40_hunter
         new_file and
         (
             ($ole_marker in (0..1024) and (1 of ($macro_sheet_h*) or ($url and $dconn)))
-          or
-          ($magic_xlsx at 0 and $anchor_xlsx)
+            or
+            ($magic_xlsx at 0 and $anchor_xlsx)
         )
 }
