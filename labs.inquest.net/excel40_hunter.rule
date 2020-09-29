@@ -7,23 +7,23 @@
 
 rule excel40_hunter
 {
-	strings:
-    	$ole_marker     = {D0 CF 11 E0 A1 B1 1A E1}
+    strings:
+        $ole_marker     = {D0 CF 11 E0 A1 B1 1A E1}
         $macro_sheet_h0 = "Excel 4.0 Macros"
-		$macro_sheet_h1 = {85 00 ?? ?? ?? ?? ?? ?? 01 01}
+        $macro_sheet_h1 = {85 00 ?? ?? ?? ?? ?? ?? 01 01}
         $macro_sheet_h2 = {85 00 ?? ?? ?? ?? ?? ?? 02 01}
-		$macro_sheet_h3 = {85 00 ?? ?? ?? ?? ?? ?? ?? 01 01}
+        $macro_sheet_h3 = {85 00 ?? ?? ?? ?? ?? ?? ?? 01 01}
         $macro_sheet_h4 = {85 00 ?? ?? ?? ?? ?? ?? ?? 02 01}
-		$url            = /https?:\/\/[\w\/\.\-]+/ nocase ascii wide
-		$dconn          = /\x76\x08\x00\x00\x04\x00[\x40-\x7f\xc0-\xff]/
-		$magic_xlsx     = /^\x50\x4B\x03\x04/
-    	$anchor_xlsx 	= /macrosheets\/[a-z0-9_-]+\.[a-z]+PK/ nocase
+        $url            = /https?:\/\/[\w\/\.\-]+/ nocase ascii wide
+        $dconn          = /\x76\x08\x00\x00\x04\x00[\x40-\x7f\xc0-\xff]/
+        $magic_xlsx     = /^\x50\x4B\x03\x04/
+        $anchor_xlsx    = /macrosheets\/[a-z0-9_-]+\.[a-z]+PK/ nocase
 
-	condition:
-		new_file and
-		(
-        	($ole_marker in (0..1024) and (1 of ($macro_sheet_h*) or ($url and $dconn)))
-            or
-            ($magic_xlsx at 0 and $anchor_xlsx)
-		)
+    condition:
+        new_file and
+        (
+            ($ole_marker in (0..1024) and (1 of ($macro_sheet_h*) or ($url and $dconn)))
+          or
+          ($magic_xlsx at 0 and $anchor_xlsx)
+        )
 }
