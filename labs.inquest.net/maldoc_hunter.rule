@@ -8,7 +8,7 @@ rule maldoc_hunter
         $activex_2   = "word/activeX/activeX1.xml"
 	$suspicious1 = { FF D8 FF E?} 
         $suspicious2 = { FF E1 ?? ?? 45 78 69 66 00 }
-        $suspicious3 = "Xor" nocase wide ascii 
+        $suspicious3 = "Xor" nocase wide ascii fullword
         $suspicious4 = "Followed Hyperlink" nocase wide ascii
         $suspicious5 = "equation native" nocase wide ascii
         $suspicious6 = "Microsoft Enhanced Cryptographic Provider" nocase wide ascii
