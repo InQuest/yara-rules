@@ -1,5 +1,5 @@
 # yara-rules
-A collection of YARA rules we wish to share with the world. These rules should not be considered production appropriate. Rather, they are valuable for research and hunting purposes. The rules are listed here, alphabetically, along with references for further reading:
+A collection of YARA rules from the folks at [InQuest](https://www.inquest.net) we wish to share with the world. These rules should not be considered production appropriate. Rather, they are valuable for research and hunting purposes. The rules are listed here, alphabetically, along with references for further reading:
 
 * Base64 Encoded Powershell
   * [YARA](https://github.com/InQuest/yara-rules/blob/master/Base64_Encoded_Powershell_Directives.rule)
