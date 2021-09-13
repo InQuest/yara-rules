@@ -1,4 +1,4 @@
-rule Embedded_PE
+rule PE_File
 {
     meta:
         Author      = "InQuest Labs"
