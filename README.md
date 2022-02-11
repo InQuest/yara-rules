@@ -54,3 +54,5 @@ malicious crafted PDF. Original write-up from [CheckPoint](https://research.chec
    * These signatures detect Symbolic Link (SLK) files that contain Excel 4.0 macros described [here](https://outflank.nl/blog/2019/10/30/abusing-the-sylk-file-format/) by Stan Hegt.
  * [CVE-2020-0601 ("Chain of Fools" or "Curveball")](https://github.com/InQuest/yara-rules/blob/master/Signed_Executable_With_Custom_Elliptic_Curve_Parameters.rule)
    * This signature detects a Microsoft Windows executable that has been signed using Elliptic Curve Cryptography (ECC) certificates with an explicit curve.
+ * [GlowSpark](https://github.com/InQuest/yara-rules/blob/master/GlowSpark_Downloader.rule)
+   * This signature detects a second stage Actinium Downloader dubbed [GlowSpark](https://inquest.net/blog/2022/02/10/380-glowspark).
