@@ -4,7 +4,7 @@ rule GlowSpark_Downloader
 meta:
 
 Author = inquest.net
-discription = "GlowSpark_2n_Stade_Actinium_Downloader"
+discription = "GlowSpark_2n_Stage_Actinium_Downloader"
 last_modified = "1.0"
 date = 08.02.2022
     
