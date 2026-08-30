@@ -55,6 +55,10 @@ The rules are listed here, alphabetically, along with references for further rea
   * This signature detects Adobe PDF files that reference a remote UNC object for the purpose of leaking NTLM hashes.
 New methods for NTLM hash leaks are discovered from time to time. This particular one is triggered upon opening of a
 malicious crafted PDF. Original write-up from [CheckPoint](https://research.checkpoint.com/ntlm-credentials-theft-via-pdf-files/).
+* [Qakbot (Qbot) BDNIMBUS Loader & Memory Patterns](https://github.com/InQuest/yara-rules/blob/master/Qakbot_BDNIMBUS.rule)
+  * Signature targeting Qakbot 64-bit loaders (campaign tag `BDNIMBUS`, v2.7.23), dynamic memory protection changes (`VirtualProtect`), and `cmove` + `xchg` atomic pointer swapping routines.
+  * [Full Writeup & Technical Analysis](https://ayushmalwarex.substack.com/p/technical-deep-dive-analyzing-qakbot)
+  * [Author Repository](https://github.com/ayush-malwarex/threat-hunting-rules)
 * [RTF_Byte_Nibble_Obfuscation](https://github.com/InQuest/yara-rules/blob/master/RTF_Byte_Nibble_Obfuscation.rule)
   * This signature is designed to detect the obfuscation method described by Boris Larin here [Disappearing bytes: Reverse engineering the MS Office RTF parser](https://securelist.com/disappearing-bytes/84017/). This obfuscation method is rarely seen but was used in the distribution of CVE-2018-8174 0day discovered in-the-wild.
   * We'll continue to earmark interesting tidbits around the subject matter in this [Twitter Moment](https://twitter.com/i/moments/994122868949770240).
